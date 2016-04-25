@@ -6,7 +6,7 @@
  */
 public class ActiveSession {
 
-    // LECACY - REPLACED BY HANDLER
+
 
     // object data
     Character activePlayer = new Character(0, 0, 0, 0, 0);

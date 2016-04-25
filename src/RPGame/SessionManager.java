@@ -1,3 +1,4 @@
+package RPGame;
 /*
  * @author Ian Gompers
  * @date created Fri, Apr 15, 2016  2:36:34 AM

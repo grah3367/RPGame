@@ -7,8 +7,8 @@ package RPGame;
  */
 public class ActiveSession {
 	
-	// object data
-	Character activePlayer = new Character(0, 0, 0, 0, 0);
-	Character activeEnemy = new Character(0, 0, 0, 0, 0);
+	// object data - commented out until needed
+	//Character activePlayer = new Character(0, 0, 0, 0, 0,0,0,0);
+	//Character activeEnemy = new Character(0, 0, 0, 0, 0);
 	
 } // end ActiveSession class

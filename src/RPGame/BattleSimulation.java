@@ -13,13 +13,24 @@ package RPGame;
  */
 
 //import scanner for user input
+import java.io.IOException;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class BattleSimulation {
 
-	public static void main(String[] args) throws java.io.IOException{
-		CreateChar chars[] = new CreateChar[2];
+
+    public BattleSimulation() throws IOException {
+        try {
+            Battle();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+	public static void Battle() throws IOException{
+		Character chars[] = new Character[2];
 		//create new scanner instance user_input
 		Scanner user_input = new Scanner(System.in);
 		try {
@@ -74,7 +85,7 @@ public class BattleSimulation {
 				}
 				
 				//initialize character
-				chars[i] = new CreateChar(name, race, type, con, str, dex, wis);
+				chars[i] = new Character(name, race, type, con, str, dex, wis);
 				chars[i].printchar();
 			}
 			
@@ -94,50 +105,50 @@ public class BattleSimulation {
 				if (first <0.5) {f = 0; s = 1;}
 				else {f = 1; s = 0;}
 				
-				System.out.println(chars[f].name+" is now fighting "+chars[s].name);
+				System.out.println(chars[f].getName()+" is now fighting "+chars[s].getName());
 				
 				while (true) {
-					if (Objects.equals(chars[f].type, "warrior")) {
+					if (Objects.equals(chars[f].getType(), "warrior")) {
 						//fighter closes the distance
 						if (dist>0) {
-							System.out.println(chars[f].name + " runs up to "+chars[s].name);
+							System.out.println(chars[f].getName() + " runs up to "+ chars[s].getName());
 							dist = 0;
 						}
 						//hit opponent
-						System.out.println(chars[f].name+ " swings their "+chars[f].weapon+" at "+chars[s].name);
-						chars[s].loseHealth(chars[f].ap);
+						System.out.println(chars[f].getName() + " swings their "+ chars[f].getWeapon() +" at "+ chars[s].getName());
+						// todo chars[s].loseHealth(chars[f].ap);
 					}//end fighter turn
 					
-					else if (Objects.equals(chars[f].type, "ranger")) {
+					else if (Objects.equals(chars[f].getType(), "ranger")) {
 						//ranger backs up
 						if (dist==0) {
-							System.out.println(chars[f].name + " backs away from "+chars[s].name);
+							System.out.println(chars[f].getName() + " backs away from "+ chars[s].getName());
 							dist = 20;
 						}
 						//hit opponent
-						System.out.println(chars[f].name+ " shoots their "+chars[f].weapon+" at "+chars[s].name);
-						chars[s].loseHealth(chars[f].ap);
+						System.out.println(chars[f].getName() + " shoots their "+ chars[f].getWeapon() +" at "+ chars[s].getName());
+						// todo chars[s].loseHealth(chars[f].ap);
 					}//end ranger turn
-					
-					else if (Objects.equals(chars[f].type, "wizard")) {
+
+					else if (Objects.equals(chars[f].getType(), "wizard")) {
 						//sorcerer backs up
 						if (dist==0) {
-							System.out.println(chars[f].name + " backs away from "+chars[s].name);
+							System.out.println(chars[f].getName() + " backs away from "+ chars[s].getName());
 							dist = 20;
 						}
 						//hit opponent
-						System.out.println(chars[f].name+ " uses their "+chars[f].weapon+" to cast a spell on "+chars[s].name);
-						chars[s].loseHealth(chars[f].ap);
+						System.out.println(chars[f].getName() + " uses their "+ chars[f].getWeapon() +" to cast a spell on "+ chars[s].getName());
+						// todo chars[s].loseHealth(chars[f].ap);
 					}//end sorcerer turn
 					
 					
-					if (chars[s].currenthp==0) {
-						System.out.println(chars[f].name+" has defeated "+chars[s].name);
+					if (chars[s].getCurrentHealth()==0) {
+						System.out.println(chars[f].getName() +" has defeated "+ chars[s].getName());
 						break;
 					}//end if chars[s] dies
 					
-					else if (chars[f].currenthp==0) {
-						System.out.println(chars[s].name+" has defeated "+chars[f].name);
+					else if (chars[f].getCurrentHealth()==0) {
+						System.out.println(chars[s].getName() +" has defeated "+ chars[f].getName());
 						break;
 					}//end if chars[f] dies
 					
@@ -148,8 +159,8 @@ public class BattleSimulation {
 				}//end while for battle
 				
 				//reset current health of both characters to  total health
-				chars[f].currenthp = chars[f].totalhp;
-				chars[s].currenthp = chars[s].totalhp;
+				chars[f].setCurrentHealth(chars[f].getMaxHP());
+                chars[f].setCurrentHealth(chars[s].getMaxHP());
 				
 				System.out.println("Would you like them to fight again? Type 'y' or 'n'.");
 				ans = user_input.next();

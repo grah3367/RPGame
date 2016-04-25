@@ -23,6 +23,7 @@ public class Character {
 
 	private int constitution;
 	private double health = (10+constitution)*15;
+    private double maxHP = 100;
 	private double currentHealth = health;
 	private int strength;
 	private int dexterity;
@@ -41,8 +42,12 @@ public class Character {
 	private boolean defending = false;
 	//defense counter
 	int counter = 0;
-	
-	// object constructor
+
+    public double getMaxHP() {
+        return maxHP;
+    }
+
+    // object constructor
 	public Character(String type, String name, String race, int constitution, int strength, int dexterity, int wisdom) {
 		this.setType(type);
 		this.setName(name);
@@ -51,9 +56,13 @@ public class Character {
 		this.setStrength(strength);
 		this.setDexterity(dexterity);
 		this.setWisdom(wisdom);
+        this.maxHP = health; // Stores the MAX Health a character can have.
 	}
-	
-	// access object data
+
+
+
+
+    // access object data
 	String getName() {
 		return this.name;
 	}

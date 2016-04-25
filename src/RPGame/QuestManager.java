@@ -20,18 +20,18 @@ public class QuestManager {
     }
 
 
-    public static void town()
+    public void town()
     {
         String npc1 = "Would like to exchange goods for services?";
-        String npc2 = "Wow! a " + chTitle + "! What great timing! We've been hearing roars and rumbles near the lake! Could you check it out?";
+        String npc2 = "Wow! a " + this.chTitle + "! What great timing! We've been hearing roars and rumbles near the lake! Could you check it out?";
     }
 
-    public static void lake()
+    public void lake()
     {
-        String narr1 = "The " + chTitle + " enters the beach surrounding an ominous lake. It has a faint glow about it eminating from the bottom.";
+        String narr1 = "The " + this.chTitle + " enters the beach surrounding an ominous lake. It has a faint glow about it eminating from the bottom.";
         String narr2 = "Dive in and see what it is?";
 
-        String narrYes = "You dive in to the cold, mysterious water and find inside it, the " + chWeapon + "!";
+        String narrYes = "You dive in to the cold, mysterious water and find inside it, the " + this.chWeapon + "!";
 
         String narrNo = "You decide to move on to the cave of uncertainty. Inside, you find a scroll that reads 'Those who enter before ready, shall parish'. You decide the lake is worth diving into.";
 

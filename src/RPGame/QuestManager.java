@@ -2,19 +2,23 @@ package RPGame;
 /*
  * Created by James on 4/18/2016.
  */
-public class QuestManager //THIS IS EXTREMELY UNFINISHED. BUT UPDATED
-{
+public class QuestManager {
     //these will gain information after the task of choosing the character type has been done.
-    String chTitle;
-    String chWeapon;
-    //chTitle will take on the type of warrior, wizard, or ranger. The weapon will of course equal the proper name afterward.
+    public String chTitle = "";
+    public String chWeapon = "";
 
-    if (chTitle.equals("Warrior")
-        chWeapon.equals("Sword of the Lake");
-    else if (chTitle.equals("Wizard")
+    public QuestManager(String chTitle, String chWeapon) {
+        //chTitle will take on the type of warrior, wizard, or ranger. The weapon will of course equal the proper name afterward.
+        this.chTitle = chTitle;
+        this.chWeapon = chWeapon;
+        if (chTitle.equals("Warrior"))
+            chWeapon.equals("Sword of the Lake");
+        else if (chTitle.equals("Wizard"))
             chWeapon.equals("Staff of the Lake");
-    else
+        else
             chWeapon.equals("Bow of the Lake");
+    }
+
 
     public static void town()
     {

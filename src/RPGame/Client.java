@@ -1,6 +1,7 @@
 package RPGame;
 /*
 Class created by James
+updated by Daniel 4/24/16
 4/18/2016
  */
 
@@ -8,19 +9,24 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 
 public class Client extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml")); //temporary root
+        //Parent root = FXMLLoader.load(getClass().getResource("sample.fxml")); //temporary root
+        Pane root = new Pane();
         
         //Title
         primaryStage.setTitle("Trogdor the Burninator");
-        
+
+        // lets separate the scene so we can grab it later
+        Scene scene = new Scene(root, 750, 650);
         //Size
-        primaryStage.setScene(new Scene(root, 750, 650));
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 

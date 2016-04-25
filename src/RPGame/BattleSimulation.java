@@ -20,7 +20,7 @@ import java.util.Scanner;
 public class BattleSimulation {
 
 
-    public BattleSimulation() throws IOException {
+    public BattleSimulation() {
         try {
             Battle();
         } catch (IOException e) {
